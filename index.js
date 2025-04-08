@@ -454,7 +454,7 @@ app.get('/healthcheck/chart', (req, res) => {
   res.redirect(`/chart?c=${template}`);
 });
 
-const port = process.env.PORT || 3400;
+const port = process.env.PORT || 3000;
 const server = app.listen(port);
 
 const timeout = parseInt(process.env.REQUEST_TIMEOUT_MS, 10) || 5000;
