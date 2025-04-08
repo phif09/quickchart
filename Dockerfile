@@ -26,6 +26,6 @@ COPY *.js ./
 COPY lib/*.js lib/
 COPY LICENSE .
 
-EXPOSE 3400
+EXPOSE 3000
 
 ENTRYPOINT ["node", "--max-http-header-size=65536", "index.js"]
