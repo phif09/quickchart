@@ -2,13 +2,11 @@ version: '3.8'
 
 services:
   quickchart:
+    image: ghcr.io/ianlunn/quickchart:latest
     container_name: quickchart
-    build:
-      context: .
-      dockerfile: Dockerfile
+    restart: unless-stopped
     environment:
       NODE_ENV: production
-    restart: always
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.quickchart.rule=Host(`quickcharts.tc-automation.fr`)"
