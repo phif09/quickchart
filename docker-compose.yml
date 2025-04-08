@@ -6,8 +6,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "4000:3000"
     environment:
       NODE_ENV: production
     restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.quickchart.rule=Host(`quickcharts.tc-automation.fr`)"
+      - "traefik.http.routers.quickchart.entrypoints=websecure"
+      - "traefik.http.routers.quickchart.tls.certresolver=letsencrypt"
+      - "traefik.http.services.quickchart.loadbalancer.server.port=3000"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
