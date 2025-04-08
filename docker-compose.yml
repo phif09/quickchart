@@ -12,7 +12,7 @@ services:
       - "traefik.http.routers.quickchart.rule=Host(`quickcharts.tc-automation.fr`)"
       - "traefik.http.routers.quickchart.entrypoints=websecure"
       - "traefik.http.routers.quickchart.tls.certresolver=letsencrypt"
-      - "traefik.http.services.quickchart.loadbalancer.server.port=3000"
+      - "traefik.http.services.quickchart.loadbalancer.server.port=3400"
     networks:
       - web
 
